@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import Map from './components/Map'
-import Loader from './components/Loader'
+// import Loader from './components/Loader'
 import Header from './components/Header'
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
         },
         redirect: 'follow',
       };
-
+      // "https://eonet.gsfc.nasa.gov/api/v2.1/events"
       try {
         const response = await fetch("https://eonet.gsfc.nasa.gov/api/v2.1/events", requestOptions);
 
@@ -29,7 +29,7 @@ function App() {
         // }
 
         const { events } = await response.json();
-        console.log(events);
+        // console.log('events!!!!!',events);
 
         setEventData(events);
         setLoading(false);
@@ -38,10 +38,11 @@ function App() {
         setLoading(false);
       }
     };
-    console.log(eventData)
+    
     fetchEvents();
   }, []);
 
+  console.log('VERY END', eventData)
 
   return (
     <div>
